@@ -1,0 +1,14 @@
+STORE '       ' TO NREF
+STORE '       ' TO OREF
+USE TIMWORK
+set fields to name,date,city,ref,notes
+set index to ref
+browse all for recno() > 7388
+SET TALK ON
+DO WHILE NREF <> 'EXIT   '
+CLEAR
+@ 4,5 SAY 'ENTER NEW REF NO' GET NREF PICTURE '!!!!!!!'
+@ 5,5 SAY 'ENTER OLD REF NO' GET OREF PICTURE '!!!!!!!'
+READ
+REPLACE ALL REF WITH ALLTRIM(NREF) FOR ALLTRIM(OREF)=ALLTRIM(REF)
+ENDDO
